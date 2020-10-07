@@ -4,6 +4,8 @@ import { TYPES } from './IoC/types';
 
 // HERE GO TO THE WEBSITE WITH API CALL AND THEN PROCEED
 
+const API_KEY = '<YOUR_API_KEY>'
+
 interface WeatherApiDto {
   main: {
     temp: number,
@@ -16,7 +18,7 @@ export class WeatherApi implements IWeatherApi {
     @inject(TYPES.IHttp) public http: IHttp,
   ) {}
 
-  public url: string = 'http://api.openweathermap.org/data/2.5/weather?id=756135&APPID=<YOUR_API_KEY>';
+  public url: string = `http://api.openweathermap.org/data/2.5/weather?id=756135&APPID=${API_KEY}`;
 
   private kelvinToCelsius(kelvinTemp: number) {
     return kelvinTemp - 273.15;
